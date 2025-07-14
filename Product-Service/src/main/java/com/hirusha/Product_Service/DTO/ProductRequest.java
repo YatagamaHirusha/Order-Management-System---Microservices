@@ -3,12 +3,13 @@ package com.hirusha.Product_Service.DTO;
 import com.hirusha.Product_Service.Model.Category;
 
 public record ProductRequest(
+        int id,
         String name,
         String description,
         String country,
-        double price,
-        int quantity,
+        Double price,
+        Integer quantity,
         Category category,
-        boolean inStock
+        Boolean inStock
 ) {
 }

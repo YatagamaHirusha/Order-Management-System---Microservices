@@ -12,9 +12,9 @@ public class Product {
 
     private String name;
     private String description;
-    private double price;
-    private int quantity;
-    private boolean inStock;
+    private Double price;
+    private Integer quantity;
+    private Boolean inStock;
 
     @Enumerated(EnumType.STRING)
     private Category category;
