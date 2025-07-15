@@ -4,6 +4,8 @@ import com.hirusha.Product_Service.DTO.ProductRequest;
 import com.hirusha.Product_Service.Model.Product;
 import com.hirusha.Product_Service.Repository.ProductRepo;
 import com.hirusha.Product_Service.Service.ProductService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +37,7 @@ public class ProductController {
         return productService.updateProduct(productRequest);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable int id){
         productService.deleteProduct(id);
     }

@@ -4,13 +4,16 @@ import com.hirusha.Product_Service.DTO.ProductRequest;
 import com.hirusha.Product_Service.Exception.ProductNotFound;
 import com.hirusha.Product_Service.Model.Product;
 import com.hirusha.Product_Service.Repository.ProductRepo;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
+@Data
 public class ProductService {
     private final ProductRepo productRepo;
 
@@ -26,7 +29,9 @@ public class ProductService {
         return productRepo.save(product);
     }
 
-    public void deleteProduct(int id){}
+    public void deleteProduct(int id){
+        productRepo.deleteById(id);
+    }
 
     public List<Product> getAllProducts(){
         return productRepo.findAll();
