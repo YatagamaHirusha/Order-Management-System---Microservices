@@ -3,6 +3,7 @@ package com.hirusha.Order_Service.Service;
 import com.hirusha.Order_Service.DTO.OrderRequest;
 import com.hirusha.Order_Service.Model.Order;
 import com.hirusha.Order_Service.Repository.OrderRepo;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class OrderService {
     private final OrderRepo orderRepo;
 
@@ -20,6 +21,7 @@ public class OrderService {
         order.setStatus(orderRequest.status());
         order.setUser_id(orderRequest.user_id());
         order.setProduct_id((orderRequest.product_id()));
+        order.setTotal_price(orderRequest.total_price());
         return orderRepo.save(order);
     }
 
@@ -31,4 +33,7 @@ public class OrderService {
         return orderRepo.getOrderById(id);
     }
 
+    public void deleteOrder(int id){
+        orderRepo.deleteById(id);
+    }
 }

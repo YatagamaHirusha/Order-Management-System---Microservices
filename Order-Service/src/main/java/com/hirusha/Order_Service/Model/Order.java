@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@RequiredArgsConstructor
 @Table(name = "orders")
 public class Order {
     @Id
@@ -20,5 +19,7 @@ public class Order {
 
     private Double total_price;
     private LocalDateTime order_date;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
 }

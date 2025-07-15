@@ -28,4 +28,9 @@ public class OrderController {
     public Order getOrderById(@PathVariable int id){
         return orderService.getOrderById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteOrder(@PathVariable int id){
+        orderService.deleteOrder(id);
+    }
 }
