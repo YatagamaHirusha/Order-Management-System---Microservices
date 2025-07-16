@@ -41,6 +41,10 @@ public class ProductService {
         return productRepo.getProductByName(name);
     }
 
+    public Product getProductById(int id){
+        return productRepo.findById(id).orElseThrow(() -> new RuntimeException("Product not found."));
+    }
+
     public Product updateProduct(ProductRequest productRequest){
         Product existingProduct = productRepo.findById(productRequest.id()).orElseThrow(ProductNotFound::new);
         if(productRequest.name() != null){

@@ -33,6 +33,10 @@ public class UserService {
         return userRepo.findAll();
     }
 
+    public User getUserById(int id){
+        return userRepo.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
     public User updateUser( UpdateUserRequest updateUserRequest){
         User user = userRepo.getUserByNic(updateUserRequest.currentNic()).orElseThrow(() -> new RuntimeException("User not found")) ;
         if(updateUserRequest.newNic() != null){

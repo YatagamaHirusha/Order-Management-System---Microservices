@@ -21,6 +21,11 @@ public class UserController {
         return userService.registerUser(newUserRequest);
     }
 
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable int id){
+        return userService.getUserById(id);
+    }
+
     @GetMapping("/all")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
@@ -35,6 +40,5 @@ public class UserController {
     public User updateUser(@RequestBody UpdateUserRequest updateUserRequest){
         return userService.updateUser(updateUserRequest);
     }
-
 
 }

@@ -22,9 +22,14 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public List<Product> getProuctsByName(@PathVariable String name){
         return productService.getProductsByName(name);
+    }
+
+    @GetMapping("/id/{id}")
+    public Product getProductById(@PathVariable int id){
+        return productService.getProductById(id);
     }
 
     @PostMapping
